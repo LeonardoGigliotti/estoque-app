@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-item *ngFor="let cliente of listaClientes">
+    <ion-label>
+      <h1>{{cliente.nome}}</h1>
+      <p>{{cliente.email}}</p>
+    </ion-label>
+
+  </ion-item>
+
+  <ion-button routerLink="/create-cliente"> 
+    Adicionar Cliente
+  </ion-button>
+
+</ion-content>
