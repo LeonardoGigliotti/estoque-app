@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Incluir Produto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+ <ion-card>
+  <ion-item>
+    <ion-input labelPlacement="floating" type="text" label="Titulo: " [(ngModel)]="titulo"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input labelPlacement="floating" type="text" label="Descrição:" [(ngModel)]="descricao" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input labelPlacement="floating" type="number" label="Preço: " [(ngModel)]="preco"></ion-input>
+  </ion-item>
+ </ion-card>
+
+  <ion-button expand="block">
+    Salvar
+  </ion-button>
+
+</ion-content>
