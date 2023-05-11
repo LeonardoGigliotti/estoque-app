@@ -17,7 +17,7 @@ export class CreateProdutoPage implements OnInit {
 
   titulo = '';
   descricao = '';
-  preco = '';
+  preco = 0;
 
   constructor(private router: Router, private produtosService: ProdutosService) { }
 
@@ -31,7 +31,7 @@ export class CreateProdutoPage implements OnInit {
       descricao: this.descricao,
       preco: this.preco
     }
-    this.produtoService.create(produto).subscribe(dados => {
+    this.produtosService.create(produto).subscribe(dados => {
       alert("Produto inserido com sucesso, id: " + dados.id)
       this.router.navigateByUrl('/lista-produtos');
     })

@@ -17,27 +17,29 @@ export class AlterarProdutoPage implements OnInit {
   id = 0;
   titulo = '';
   descricao = '';
-  preco = '';
+  preco = 0;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private produtoService: ProdutosService) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private produtosService: ProdutosService) { }
 
   ngOnInit() {
   this.id = this.activatedRoute.snapshot.params['id'];
 
-  this.produtosService.getOne(this.id).subscribe(retorno => {
-    this.titulo = retorno.titulo as string;
-    this.descricao = retorno.descricao ? retorno.descricao : '';
+  this.produtosService.getOne(this.id).subscribe(dados => {
+    this.titulo = dados.titulo!;
+    this.descricao = dados.descricao!;
+    this.preco = dados.preco!;
   })
   }
 
 
   salvar(){
     const produto: Produto = {
+      id: this.id,
       titulo: this.titulo,
       descricao: this.descricao,
       preco: this.preco
     }
-    this.produtoService.create(produto).subscribe(dados => {
+    this.produtosService.create(produto).subscribe(dados => {
       alert("Produto inserido com sucesso, id: " + dados.id)
       this.router.navigateByUrl('/lista-produtos');
   })
