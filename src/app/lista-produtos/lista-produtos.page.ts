@@ -27,7 +27,7 @@ export class ListaProdutosPage {
 
   buscarProdutos(){
     this.produtosService.getAll().subscribe(dados => {
-      this.listaProdutos = dados as Produto[];
+      this.listaProdutos = dados;
     });
   }
 

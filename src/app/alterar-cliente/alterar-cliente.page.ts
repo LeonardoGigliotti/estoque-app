@@ -26,7 +26,7 @@ export class AlterarClientePage implements OnInit {
   this.id = this.activatedRoute.snapshot.params['id'];
 
   this.clienteService.getOne(this.id).subscribe(retorno => {
-    this.nome = retorno.nome as string;
+    this.nome = retorno.nome;
     this.email = retorno.email ? retorno.email : '';
   })
   }
@@ -40,8 +40,8 @@ export class AlterarClientePage implements OnInit {
         email: this.email,
         senha: this.senha
       }
-      this.clienteService.create(cliente).subscribe(dados => {
-        alert('Cliente inserido com sucesso: ' + dados.id)
+      this.clienteService.update(cliente).subscribe(dados => {
+        alert('Cliente alterado com sucesso: ' + dados.id)
         this.router.navigateByUrl('/home');
       });
 

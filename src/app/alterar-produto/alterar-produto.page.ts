@@ -39,8 +39,8 @@ export class AlterarProdutoPage implements OnInit {
       descricao: this.descricao,
       preco: this.preco
     }
-    this.produtosService.create(produto).subscribe(dados => {
-      alert("Produto inserido com sucesso, id: " + dados.id)
+    this.produtosService.update(produto).subscribe(dados => {
+      alert("Produto alterado com sucesso, id: " + dados.id)
       this.router.navigateByUrl('/lista-produtos');
   })
   }
